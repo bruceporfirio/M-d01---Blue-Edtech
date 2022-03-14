@@ -1,2 +1,2 @@
-# Mod01---Blue-Edtech
+# Mod01-Blue-Edtech
 Projetos e atividades do Módulo 01 - Blue Edtech 
