@@ -23,9 +23,8 @@ if (ladA >= ladB + ladC) {
     console.log(`Triângulo obtusângulo.`);
 } else if (ladA ** 2 < ladB ** 2 + ladC ** 2) {
     console.log(`Triângulo acutângulo.`);
-} else if (ladA ** 2 === ladB ** 2 === ladC ** 2) {
+} else if ((ladA ** 2 === ladB ** 2) === ladC ** 2) {
     console.log('Triângulo equílatero.');
-} else ladA === ladB || ladA === ladC || ladC === ladB;
-{
+} else if (ladA !== ladB || ladA !== ladC || ladC !== ladB) {
     console.log(`Triângulo isósceles.`);
 }
