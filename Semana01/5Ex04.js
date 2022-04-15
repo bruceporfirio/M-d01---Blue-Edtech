@@ -9,7 +9,7 @@ let numComp = '';
 let contador = 0;
 
 while (numUsuario !== numComp) {
-    numUsuario = +prompt(`Digite o um número:`);
+    numUsuario = +prompt(`Digite o um número: `);
     numComp = Math.floor(Math.random() * 10);
 
     if (numUsuario !== numComp) {
