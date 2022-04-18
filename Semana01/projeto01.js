@@ -17,7 +17,7 @@ prompt('Clique ENTER para continuar!'); //continuação com enter
 console.log(); //pular linha
 
 console.log('Responda as peguntas com "sim" ou "não".'); //tutorial
-ponto = 0; //variável pontuação
+let ponto = 0; //variável pontuação
 
 prompt('Clique ENTER para continuar!'); //continuação com enter
 console.log(); //pular linha
