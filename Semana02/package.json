@@ -1,0 +1,26 @@
+{
+  "name": "mod01-blue-edtech",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bruceporfirio/Mod01-Blue-Edtech.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bruceporfirio/Mod01-Blue-Edtech/issues"
+  },
+  "homepage": "https://github.com/bruceporfirio/Mod01-Blue-Edtech#readme",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.6.2"
+  }
+}
