@@ -26,26 +26,15 @@
 
 const prompt = require('prompt-sync')();
 console.clear();
-console.log(`Jogue PEDRA, PAPEL e TESOURA contra o computador!
-
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%.%&&*,@@@@/,*&@@@@@@@@@@@@@@%.,/(.,@@@@%.,*.,@@@@@
-@@@@@@@@@@@(...,(%%%(,..,@@@@@@@@@@@@@@@@@.,&@,*@.%&&&&%.@.&&&&@*%@@@@@@@@@@@.%&%%%%&.@@.#%%%%&.@@@@
-@@@@@@@..%&&&&&&&&&&&&&&&&&,.@@@@@@@@@@@@@.%&&&&, %&&&&#,%.%&&&&@ @@@@@@@@@@@.%%&%%%&&..%%&%%%&#*@@@
-@@@@#.%&&&&&&&&&&&&&&&&@.%&&@#.@@@@@/./*.&,/%&&&,%*%&&@.@(/%&&&&#,@@@@@@@@@@@.%&&&&&&@.%&&&&&&@,%@@@
-@@@.%&&&&&&&&&&.%&&&&&&&&.%&&&@.@@@@.%&&%#.*/%&&%..%&&&.@*%&&&&&.@@@@@@@@@@@@(/&&&&&&@.%&&&&&&&.@@@@
-@@.#&&&@.%&&&&@.%&&&&&&&@.%&&&&#,@@@/,%%&&%.*/%&&%/%&%&&#&%%&%&.&@@@@@@@@@@@@@.%&&&&&@.%&&&&&@.@@@@@
-@@.%&&&%.%&&&&&.#%&#,....#&&%&&#,@@@@@./%&%%%%%%%%%%%%%%%%%%@*.#&%&.,@@@@@@(.%%&%%&/.%&&,..,,..@@@@@
-@@.%%&&@.%&&&%@*.%&%%%%%%%@..%@.@@@@@@@@*,#&%%%%%%%@..(%%%%%%%%%%%%%&.@@@/*%%%%%%%%%&.#%%%%%%%%&.&@@
-@@,*%%%&#.#&&&**%%%%%%%%%%%&&.#@@@@@@@@@@*(%%%%%&%.#%%%%%%%%%%%%%%%&.&@@@,%%%%&,.%%&.%%%%%%%%%%&&.@@
-@@@@..%%&.(...*.%%%%%%%%%%&@/,@@@@@@@@@@@#,%%%%%&,%%%%%%%%%%%&@(..%@@@@@@.%&&&&&&@.%&.%&%%%&%#&@,%@@
-@@@@@@./%&&%&&&%&%,..*%&&&/.@@@@@@@@@@@@@@.(%%%%%%%%%%%%%%%%.@@@@@@@@@@@@#,%&#%&&&%*&&&&%#&&&&%.@@@@
-@@@@@@@(,.../#%&@,......%&#.@@@@@@@@@@@@@@@&.((%%%%%%%%%&/.&@@@@@@@@@@@@@@@.,%&%(&&&&&&&&&&*..@@@@@@
-@@@@@@@@@#.,%&&&&&&&&&@#.,@@@@@@@@@@@@@@@@@@,/%%&%%##%&%%&.@@@@@@@@@@@@@@@@@@@...,//%&&&&&&&#.@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#....,,.../@@@@@@@@@@@@@@@@@@@@@@@*....,....(@@@@@@@@@`);
+console.log(`
+            _____________
+            |           |
+            |  JOKENPÔ  |
+            |   ✊🖐️-✌️   |       
+            |___________|          
+`);
 console.log();
-prompt(`⌨️ Pressione ENTER para ver tutorial!`); // intro
-console.clear();
+prompt(`⌨️  Pressione ENTER para ver tutorial!`); // intro
 console.log();
 console.log(`-------📃 TUTORIAL 📃-------
 
@@ -54,16 +43,16 @@ console.log(`-------📃 TUTORIAL 📃-------
 ➡︎ Após escolher o número de rodadas, o computador escolherá sua opção automaticamente e o usuário digitará o número 
 correspondente conforme indicação abaixo:
 
-Pedra______Digite: 0
-Papel______Digite: 1
-Tesoura____Digite: 2
+Pedra______Digite: 0 ✊              
+Papel______Digite: 1 🖐️
+Tesoura____Digite: 2 ✌️
 
 ➡︎ Quem ganha, quem perde:
 
-Pedra   - perde de papel e ganha de tesoura.
-Papel   - perde de tesoura e ganha de pedra.
-Tesoura - perde de pedra e ganha de papel.
-Iguais  - escolhas iguais resultam em empate.
+Pedra_____perde de papel e ganha de tesoura.
+Papel_____perde de tesoura e ganha de pedra.
+Tesoura___perde de pedra e ganha de papel.
+Iguais____escolhas iguais resultam em empate.
 
 ➡︎ Resultado:
 O jogo indicará o vencedor/empate a cada rodada. 
@@ -80,7 +69,7 @@ let escolhaUsuario = ``;
 
 while (jogar !== 'nao') {
     console.clear();
-
+    let nome = prompt(`Digite seu nome: `);
     vezesJogada = +prompt(`Quantas rodadas você quer jogar: `);
 
     console.log();
@@ -88,7 +77,7 @@ while (jogar !== 'nao') {
     let contUsu = 0;
     let contEmp = 0;
     for (let i = 0; i < vezesJogada; i++) {
-        let item = [`Pedra ⛰️`, `Papel 📄`, `Tesoura ✂️`];
+        let item = [`Pedra ✊`, `Papel 🖐️`, `Tesoura ✌️`];
         escolhaPc = Math.floor(Math.random(item) * 3);
         escolhaUsuario = +prompt(
             `Digite o número referente a opção desejada (0-Pedra, 1-Papel, 2-Tesoura): `,
@@ -102,41 +91,41 @@ while (jogar !== 'nao') {
             escolhaUsuario = +prompt(`Digite uma entrada válida: `);
         }
 
-        console.log(`Você escolheu: ${item[escolhaUsuario]}`);
+        console.log(`${nome} escolheu: ${item[escolhaUsuario]}`);
         console.log(`Computador escolheu: ${item[escolhaPc]}`);
 
         if (escolhaUsuario == 0 && escolhaPc == 1) {
-            console.log(`Computador VENCEU rodada!`);
+            console.log(`🖥️  Computador VENCEU rodada! `);
             contPc++;
             console.log();
         } else if (escolhaUsuario == 1 && escolhaPc == 0) {
-            console.log(`Você VENCEU rodada!`);
+            console.log(`🧍 ${nome} VENCEU rodada! `);
             contUsu++;
             console.log();
         } else if (escolhaUsuario == 1 && escolhaPc == 2) {
-            console.log(`Computador VENCEU rodada!`);
+            console.log(`🖥️  Computador VENCEU rodada! `);
             contPc++;
             console.log();
         } else if (escolhaUsuario == 2 && escolhaPc == 1) {
-            console.log(`Você VENCEU rodada!`);
+            console.log(`🧍 ${nome} VENCEU rodada! `);
             contUsu++;
             console.log();
         } else if (escolhaUsuario == 2 && escolhaPc == 0) {
-            console.log(`Computador VENCEU rodada!`);
+            console.log(`🖥️  Computador VENCEU rodada! `);
             contPc++;
             console.log();
         } else if (escolhaUsuario == 0 && escolhaPc == 2) {
-            console.log(`Você VENCEU rodada!`);
+            console.log(`🧍 ${nome} VENCEU rodada! `);
             contUsu++;
             console.log();
         } else {
-            console.log(`Empate!`);
+            console.log(`❌ Empate!`);
             contEmp++;
             console.log();
         }
     }
     console.log();
-    prompt(`⌨️ Pressione ENTER para descobrir o resultado final!`);
+    prompt(`⌨️  Pressione ENTER para descobrir o resultado final!`);
     console.clear();
 
     console.log(`
@@ -152,9 +141,9 @@ while (jogar !== 'nao') {
         
         `);
 
-    console.log(`Usuário venceu: ${contUsu} vez(es)`);
+    console.log(`${nome} venceu: ${contUsu} vez(es)`);
     console.log(`Computador venceu: ${contPc} vez(es)`);
-    console.log(`Empates: ${contEmp} vez(es)`);
+    console.log(`Empate: ${contEmp} vez(es)`);
 
     if (contUsu > contPc) {
         console.log(
@@ -162,7 +151,7 @@ while (jogar !== 'nao') {
         );
 
         console.log(
-            `🏆 Usuário foi o grande vencedor com ${contUsu} ponto(s)! 🏆`,
+            `🧍🏆 ${nome} foi o(a) grande vencedor(a) com ${contUsu} ponto(s)! 🏆 🧍`,
         );
         console.log(
             `--------------------------------------------------------------------`,
@@ -173,7 +162,7 @@ while (jogar !== 'nao') {
         );
 
         console.log(
-            `🏆 Computador foi o grande vencedor com ${contPc} pontos(s)! 🏆`,
+            `🖥️ 🏆  Computador foi o grande vencedor com ${contPc} ponto(s)! 🏆 🖥️`,
         );
         console.log(
             `--------------------------------------------------------------------`,
@@ -182,7 +171,7 @@ while (jogar !== 'nao') {
         console.log(
             `--------------------------------------------------------------------`,
         );
-        console.log(`❌ O jogadores empataram. ❌`);
+        console.log(`❌ Os jogadores empataram. ❌`);
         console.log(
             `--------------------------------------------------------------------`,
         );
