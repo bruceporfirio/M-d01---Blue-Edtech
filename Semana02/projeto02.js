@@ -6,7 +6,7 @@
 // Repetir os passos 2, 3 e 4 de acordo com o número de rodadas escolhido; OK
 // Ao final das repetições, mostrar quantas rodadas cada jogador ganhou; OK
 // Determinar quem foi o grande campeão de acordo com a quantidade de vitórias de cada um (computador e jogador); OK
-// Perguntar se o Jogador quer jogar novamente: Se sim volte ao primeiro passo, se não finalize o programa. ? OK
+// Perguntar se o Jogador quer jogar novamente: Se sim volte ao primeiro passo, se não finalize o programa.  OK
 // ----------------------------------------------------------------------------------------------------------------------------------------------
 // PARTE 1
 // Criar uma lista com os elementos a serem escolhidos; OK
@@ -38,9 +38,11 @@ prompt(`⌨️  Pressione ENTER para ver tutorial!`); // intro
 console.log();
 console.log(`-------📃 TUTORIAL 📃-------
 
-➡︎ Você escolherá quantas rodadas deseja jogar.
+➡︎ Você informará seu nome.
 
-➡︎ Após escolher o número de rodadas, o computador escolherá sua opção automaticamente e o usuário digitará o número 
+➡︎ Escolherá  quantas rodadas deseja jogar.
+
+➡︎ Após informar o número de rodadas, o computador escolherá sua opção automaticamente e o usuário digitará o número 
 correspondente conforme indicação abaixo:
 
 Pedra______Digite: 0 ✊              
@@ -125,7 +127,7 @@ while (jogar !== 'nao') {
         }
     }
     console.log();
-    prompt(`⌨️  Pressione ENTER para descobrir o resultado final!`);
+    prompt(`⌨️  Pressione ENTER para descobrir quem foi o(a) GRANDE CAMPEÃ(O)!`);
     console.clear();
 
     console.log(`
@@ -162,7 +164,7 @@ while (jogar !== 'nao') {
         );
 
         console.log(
-            `🖥️ 🏆  Computador foi o grande vencedor com ${contPc} ponto(s)! 🏆 🖥️`,
+            `🖥️  🏆  Computador foi o grande vencedor com ${contPc} ponto(s)! 🏆 🖥️`,
         );
         console.log(
             `--------------------------------------------------------------------`,
