@@ -72,7 +72,17 @@ let escolhaUsuario = ``;
 while (jogar !== 'nao') {
     console.clear();
     let nome = prompt(`Digite seu nome: `);
-    vezesJogada = +prompt(`Quantas rodadas você quer jogar: `);
+    while (nome.length < 3) {
+        console.log('Digite um nome com no mínimo três caracteres!');
+        nome = prompt(`Digite seu nome: `);
+        console.log();
+    }
+    vezesJogada = +prompt(`Quantas rodadas você deseja jogar: `);
+    while (isNaN(vezesJogada)) {
+        console.log('Digite apenas números!');
+        vezesJogada = +prompt(`Quantas rodadas você deseja jogar: `);
+        console.log();
+    }
 
     console.log();
     let contPc = 0;
@@ -127,7 +137,9 @@ while (jogar !== 'nao') {
         }
     }
     console.log();
-    prompt(`⌨️  Pressione ENTER para descobrir quem foi o(a) GRANDE CAMPEÃ(O)!`);
+    prompt(
+        `⌨️  Pressione ENTER para descobrir quem foi o(a) GRANDE CAMPEÃ(O)!`,
+    );
     console.clear();
 
     console.log(`
