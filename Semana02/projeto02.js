@@ -71,7 +71,7 @@ let escolhaUsuario = ``;
 
 while (jogar !== 'nao') {
     console.clear();
-    let nome = prompt(`Digite seu nome: `);
+    let nome = prompt(`Digite seu nome(mínimo 3 caracteres): `);
     while (nome.length < 3) {
         console.log('Digite um nome com no mínimo três caracteres!');
         nome = prompt(`Digite seu nome: `);
