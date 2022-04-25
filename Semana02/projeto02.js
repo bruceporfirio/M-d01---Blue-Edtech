@@ -1,29 +1,3 @@
-// PROJETO GERAL - REQUISITOS:
-// Permitir que eu decida quantas rodadas iremos fazer; OK
-// Ler a minha escolha (Pedra, papel ou tesoura, ou os elementos escolhidos por você para o seu jogo); OK
-// Decidir de forma aleatória a decisão do computador; OK
-// Comparar os valores e declarar o vencedor (marcando 1 vitória para ele); OK
-// Repetir os passos 2, 3 e 4 de acordo com o número de rodadas escolhido; OK
-// Ao final das repetições, mostrar quantas rodadas cada jogador ganhou; OK
-// Determinar quem foi o grande campeão de acordo com a quantidade de vitórias de cada um (computador e jogador); OK
-// Perguntar se o Jogador quer jogar novamente: Se sim volte ao primeiro passo, se não finalize o programa.  OK
-// ----------------------------------------------------------------------------------------------------------------------------------------------
-// PARTE 1
-// Criar uma lista com os elementos a serem escolhidos; OK
-// Criar as variáveis que receberão as escolhas do usuário e do computador (prompt para o usuário, e aleatório para o computador); OK
-// Fazer a validação da entrada do usuário (o programa só deve aceitar o que foi definido por você como entradas válidas); ?????
-// Exibir o elemento da lista correspondente à escolha de cada um; OK
-// Comparar os elementos e exibir quem foi o vencedor dessa rodada. OK
-// ---------------------------------------------------------------------------------------------------------------------------------------------------
-//PARTE 2 (final)
-// Criar a variável que receberá a quantidade de rodadas que o jogador deseja jogar; OK
-// Criar o laço que irá repetir o jogo o número de vezes escolhida pelo jogador; OK
-// Depois de declarar o vencedor da rodada, adicionar 1 ponto para esse vencedor; OK
-// Ao final das rodadas mostrar quantos pontos cada um marcou;OK
-// Determinar quem fez mais pontos e portanto foi o campeão do jogo; OK
-// Perguntar ao final se ele quer jogar de novo e criar um laço que deve repetir todo o programa caso a resposta seja sim. OK
-// -----------------------------------------------------------------------------------------------------------------------------------------------------
-
 const prompt = require('prompt-sync')();
 console.clear();
 console.log(`
@@ -45,9 +19,9 @@ console.log(`-------📃 TUTORIAL 📃-------
 ➡︎ Após informar o número de rodadas, o computador escolherá sua opção automaticamente e o usuário digitará o número 
 correspondente conforme indicação abaixo:
 
-Pedra______Digite: 0 ✊              
-Papel______Digite: 1 🖐️
-Tesoura____Digite: 2 ✌️
+Pedra______Digite: 1 ✊              
+Papel______Digite: 2 🖐️
+Tesoura____Digite: 3 ✌️
 
 ➡︎ Quem ganha, quem perde:
 
@@ -71,34 +45,36 @@ let escolhaUsuario = ``;
 
 while (jogar !== 'nao') {
     console.clear();
-    let nome = prompt(`Digite seu nome(mínimo 3 caracteres): `);
-    while (nome.length < 3) {
-        console.log('Digite um nome com no mínimo três caracteres!');
+
+    nome = prompt(`Digite seu nome: `);
+
+    while (!isNaN(nome)) {
+        console.log('Apenas letras são aceitas como caracteres válidos!');
         nome = prompt(`Digite seu nome: `);
         console.log();
     }
+    console.log();
     vezesJogada = +prompt(`Quantas rodadas você deseja jogar: `);
-    while (isNaN(vezesJogada)) {
-        console.log('Digite apenas números!');
+    while (vezesJogada == 0 || isNaN(vezesJogada)) {
+        console.log('Você deve informar um número igual ou maior que 1!');
         vezesJogada = +prompt(`Quantas rodadas você deseja jogar: `);
         console.log();
     }
-
     console.log();
     let contPc = 0;
     let contUsu = 0;
     let contEmp = 0;
     for (let i = 0; i < vezesJogada; i++) {
-        let item = [`Pedra ✊`, `Papel 🖐️`, `Tesoura ✌️`];
-        escolhaPc = Math.floor(Math.random(item) * 3);
+        let item = [`ÍNDICEZERO`, `Pedra ✊`, `Papel 🖐️`, `Tesoura ✌️`];
+        escolhaPc = Math.ceil(Math.random(item) * 3);
         escolhaUsuario = +prompt(
-            `Digite o número referente a opção desejada (0-Pedra, 1-Papel, 2-Tesoura): `,
+            `Digite o número referente a opção desejada (1-Pedra, 2-Papel, 3-Tesoura): `,
         );
 
         while (
-            escolhaUsuario !== 0 &&
             escolhaUsuario !== 1 &&
-            escolhaUsuario !== 2
+            escolhaUsuario !== 2 &&
+            escolhaUsuario !== 3
         ) {
             escolhaUsuario = +prompt(`Digite uma entrada válida: `);
         }
@@ -106,15 +82,7 @@ while (jogar !== 'nao') {
         console.log(`${nome} escolheu: ${item[escolhaUsuario]}`);
         console.log(`Computador escolheu: ${item[escolhaPc]}`);
 
-        if (escolhaUsuario == 0 && escolhaPc == 1) {
-            console.log(`🖥️  Computador VENCEU rodada! `);
-            contPc++;
-            console.log();
-        } else if (escolhaUsuario == 1 && escolhaPc == 0) {
-            console.log(`🧍 ${nome} VENCEU rodada! `);
-            contUsu++;
-            console.log();
-        } else if (escolhaUsuario == 1 && escolhaPc == 2) {
+        if (escolhaUsuario == 1 && escolhaPc == 2) {
             console.log(`🖥️  Computador VENCEU rodada! `);
             contPc++;
             console.log();
@@ -122,11 +90,19 @@ while (jogar !== 'nao') {
             console.log(`🧍 ${nome} VENCEU rodada! `);
             contUsu++;
             console.log();
-        } else if (escolhaUsuario == 2 && escolhaPc == 0) {
+        } else if (escolhaUsuario == 2 && escolhaPc == 3) {
             console.log(`🖥️  Computador VENCEU rodada! `);
             contPc++;
             console.log();
-        } else if (escolhaUsuario == 0 && escolhaPc == 2) {
+        } else if (escolhaUsuario == 3 && escolhaPc == 2) {
+            console.log(`🧍 ${nome} VENCEU rodada! `);
+            contUsu++;
+            console.log();
+        } else if (escolhaUsuario == 3 && escolhaPc == 2) {
+            console.log(`🖥️  Computador VENCEU rodada! `);
+            contPc++;
+            console.log();
+        } else if (escolhaUsuario == 1 && escolhaPc == 3) {
             console.log(`🧍 ${nome} VENCEU rodada! `);
             contUsu++;
             console.log();
